@@ -6,8 +6,7 @@
 
 ## To-do
 
-- get typescript involved
-- get a lint script to work
+- get prettier to run the formatting on save
 - get a backend running
 - get build script so that we're serving dist from the backend
 - start tracking with json-server
