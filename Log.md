@@ -7,7 +7,27 @@
   ```
 
 - Linting rules using prettier + eslint
+
   ```sh
   pnpm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
   ```
+
   (then change the `eslint.config.js` file; I used chatgpt to tell me how)
+
+- Get backend running
+  - ```sh
+    pnpm install express
+    pnpm install --save-dev @types/express
+    pnpm install -D ts-node-dev
+    ```
+  - Use this weird line to straddle commonjs and es modules:
+    ```ts
+    import * as express from "express";
+    ```
+  - rename `eslint.config.js` to `eslint.config.mjs`
+  - add `"esModuleInterop": true` to the `compilerOptions` of tsconfig.node.json
+  - refactor the `package.json` starting scripts:
+    ```json
+    "dev:frontend": "vite",
+    "dev:backend": "ts-node-dev backend.ts",
+    ```
