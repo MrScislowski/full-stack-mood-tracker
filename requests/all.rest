@@ -1,2 +1,17 @@
-### 
+### backend = localhost:3000
+### db = localhost:3001
+
+### backend
 GET http://localhost:3000/api/hello
+
+### db
+GET http://localhost:3001/entries
+
+### db
+POST http://localhost:3001/entries
+Content-Type: application/json
+
+{
+  "name": "first",
+  "message": "hello"
+}
