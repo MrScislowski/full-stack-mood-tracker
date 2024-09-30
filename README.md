@@ -6,12 +6,10 @@
 
 ## To-do
 
-- set up unit tests (for json server etc)
-  - I think I want to use vitest instead of jest
-  - I'll use playwright e2e, so decide what to test using vitest
-    - database adding / removing / errors with malformed queries etc?
+- change the vitest tests and entriesService to use async / await instead of promises
+- set up error handling
+- set up simple e2e tests with playwright
 - add error tracking, maybe with middleware
-- set up e2e tests using playwright
 - get github actions automated with tests etc
 - deploy to digital ocean
 - get tailwindcss and/or chakra on there
