@@ -6,8 +6,8 @@
 
 ## To-do
 
-- start tracking with json-server
 - set up unit tests (for json server etc)
+- add error tracking, maybe with middleware
 - set up e2e tests using playwright
 - get github actions automated with tests etc
 - deploy to digital ocean

@@ -4,14 +4,11 @@
 ### backend
 GET http://localhost:3000/api/hello
 
-### db
-GET http://localhost:3001/entries
-
-### db
-POST http://localhost:3001/entries
+### backend
+POST http://localhost:3000/api/entries
 Content-Type: application/json
 
 {
-  "name": "first",
+  "mood": "joy",
   "message": "hello"
 }
