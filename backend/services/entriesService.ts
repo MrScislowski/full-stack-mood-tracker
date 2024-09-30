@@ -3,22 +3,22 @@ import { MoodEntry, MoodEntrySansId } from "../../types";
 
 const baseUrl = "http://localhost:3001/entries";
 
-const addEntry = (entry: MoodEntrySansId): Promise<MoodEntry> => {
-  return axios.post(`${baseUrl}`, entry).then((res) => res.data);
+const addEntry = async (entry: MoodEntrySansId): Promise<MoodEntry> => {
+  const response = await axios.post(`${baseUrl}`, entry);
+  return response.data;
 };
 
-const getAll = (): Promise<MoodEntry[]> => {
-  return axios.get(`${baseUrl}`).then((res) => res.data);
+const getAll = async (): Promise<MoodEntry[]> => {
+  const response = await axios.get(`${baseUrl}`);
+  return response.data;
 };
 
-const deleteAll = (): Promise<boolean> => {
-  return getAll().then((entries) => {
-    return Promise.all(
-      entries.map((entry) => axios.delete(`${baseUrl}/${entry.id}`)),
-    )
-      .then(() => true)
-      .catch(() => false);
-  });
+const deleteAll = async (): Promise<boolean> => {
+  const entries = await getAll();
+  await Promise.all(
+    entries.map((entry) => axios.delete(`${baseUrl}/${entry.id}`)),
+  );
+  return true;
 };
 
 export default { getAll, addEntry, deleteAll };
