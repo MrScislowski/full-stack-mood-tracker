@@ -6,7 +6,6 @@
 
 ## To-do
 
-- set up error handling
 - set up simple e2e tests with playwright
 - add error tracking, maybe with middleware
 - get github actions automated with tests etc
