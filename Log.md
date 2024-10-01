@@ -31,3 +31,27 @@
     "dev:frontend": "vite",
     "dev:backend": "ts-node-dev backend.ts",
     ```
+
+## Linting prior to commits
+
+```sh
+pnpm add -D husky lint-staged
+npx husky init
+```
+
+Add this to `package.json` (not inside "scripts"; in its own root level):
+
+```json
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "perttier --write"
+    ]
+  },
+```
+
+Put this in `.husky/pre-commit`:
+
+```sh
+pnpm lint-staged
+```
