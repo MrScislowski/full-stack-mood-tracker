@@ -1,6 +1,37 @@
-import { describe, test, expect, beforeEach } from "vitest";
+import {
+  describe,
+  test,
+  expect,
+  beforeEach,
+  beforeAll,
+  afterAll,
+} from "vitest";
+import { spawn } from "child_process";
 import entriesService from "../services/entriesService";
 import { MoodEntrySansId } from "../../types";
+
+import { cwd } from "node:process";
+
+let server;
+
+beforeAll(() => {
+  return new Promise<void>((resolve) => {
+    server = spawn("json-server", ["--watch", "db.json", "--port", "3001"]);
+    server.stdout.on("data", (data) => {
+      if (data.toString().includes("JSON Server started")) {
+        resolve();
+      }
+    });
+  });
+});
+
+afterAll(async () => {
+  await entriesService.deleteAll();
+  return new Promise<void>((resolve) => {
+    server.kill();
+    resolve();
+  });
+});
 
 beforeEach(async () => {
   await entriesService.deleteAll();
