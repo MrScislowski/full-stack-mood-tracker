@@ -7,6 +7,7 @@
 ## To-do
 
 - get github actions automated with tests etc
+  - how can I run linter before i'm allowed to commit, or at least before I'm allowed to push?
   - have vitest run the database before testing
   - have playwright run the database AND the backend before testing
 - add error tracking, maybe with middleware

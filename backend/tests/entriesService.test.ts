@@ -10,8 +10,6 @@ import { spawn } from "child_process";
 import entriesService from "../services/entriesService";
 import { MoodEntrySansId } from "../../types";
 
-import { cwd } from "node:process";
-
 let server;
 
 beforeAll(() => {
