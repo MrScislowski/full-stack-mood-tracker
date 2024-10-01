@@ -1,7 +1,10 @@
 name: Full Test Suite
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - feature/github-actions
 
 jobs:
   run-test-suite:
