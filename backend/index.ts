@@ -1,5 +1,5 @@
-import * as express from "express";
-import * as path from "path";
+import express from "express";
+import path from "path";
 import { newMoodEntrySchema } from "../types";
 import entriesService from "./services/entriesService";
 
@@ -8,7 +8,15 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.use(express.static(path.resolve(__dirname, "../dist"))); // serves up the frontend
+// get mode from environment, possibly with cross-env
+// eslint-disable-next-line prefer-const
+let mode = "prod";
+const frontendBuildDir =
+  mode === "dev" ? "../frontend/dist" : "./frontend/dist";
+
+console.log(`looking for frontend in ${path.resolve(frontendBuildDir)}`);
+
+app.use(express.static(path.resolve(frontendBuildDir))); // serves up the frontend
 
 app.get("/api/hello", (req, res) => {
   res.send("hello!");
