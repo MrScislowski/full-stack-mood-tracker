@@ -1,10 +1,9 @@
 name: Lint and build
 
 on:
-  - push:
+  push:
     branches:
       - feature/github-actions
-  - workflow_dispatch
 
 jobs:
   lint-and-build:
