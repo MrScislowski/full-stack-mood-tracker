@@ -1,7 +1,7 @@
 import { MoodEnum } from "../types";
 
 function App() {
-  const emotionList = MoodEnum.options;
+  const emotionList = MoodEnum.options
 
   return (
     <>
