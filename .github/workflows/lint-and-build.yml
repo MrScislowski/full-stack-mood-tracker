@@ -6,7 +6,7 @@ on:
       - feature/github-actions
 
 jobs:
-  lint:
+  lint-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,3 +14,5 @@ jobs:
         run: npm install
       - name: run linter
         run: npm run lint
+      - name: build
+        run: npm run build
