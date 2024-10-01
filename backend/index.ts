@@ -8,13 +8,8 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// get mode from environment, possibly with cross-env
-// eslint-disable-next-line prefer-const
-let mode = "prod";
 const frontendBuildDir =
-  mode === "dev" ? "../frontend/dist" : "./frontend/dist";
-
-console.log(`looking for frontend in ${path.resolve(frontendBuildDir)}`);
+  process.env.NODE_ENV === "dev" ? "../frontend/dist" : "./frontend/dist";
 
 app.use(express.static(path.resolve(frontendBuildDir))); // serves up the frontend
 
