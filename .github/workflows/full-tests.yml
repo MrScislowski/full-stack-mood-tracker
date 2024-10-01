@@ -1,6 +1,7 @@
 name: Full Test Suite
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   run-test-suite:
