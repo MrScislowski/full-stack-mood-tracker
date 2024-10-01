@@ -1,5 +1,7 @@
+import { MoodEnum } from "../types";
+
 function App() {
-  const emotionList = ["joy", "sadness", "fear", "anger", "disgust"];
+  const emotionList = MoodEnum.options;
 
   return (
     <>
