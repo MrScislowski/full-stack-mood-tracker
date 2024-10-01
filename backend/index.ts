@@ -1,4 +1,5 @@
 import * as express from "express";
+import * as path from "path";
 import { newMoodEntrySchema } from "../types";
 import entriesService from "./services/entriesService";
 
@@ -6,7 +7,8 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(express.static("../dist")); // serves up the frontend
+
+app.use(express.static(path.resolve(__dirname, "../dist"))); // serves up the frontend
 
 app.get("/api/hello", (req, res) => {
   res.send("hello!");
