@@ -1,0 +1,16 @@
+name: Lint and build
+
+on:
+  push:
+    branches:
+      - feature/github-actions
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm install
+      - name: run linter
+        run: npm run lint
