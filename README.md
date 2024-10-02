@@ -8,8 +8,10 @@
 
 ### This branch
 
+- run `pnpm exec playwright install` to completion (seems to be freezing on webkit)
 - frontend actually adds / gets from backend
 - separate backend into route file
+- implement some sort of tagcloud of all the emotions that have been logged or something
 - add error tracking, maybe with middleware
 - figure out why frontend is trying to get favicon.ico
 - should I be tracking this in git: `tsconfig.app.tsbuildinfo`?
