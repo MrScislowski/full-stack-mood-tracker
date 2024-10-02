@@ -9,7 +9,10 @@
 ### This branch
 
 - frontend actually adds / gets from backend
+- separate backend into route file
 - add error tracking, maybe with middleware
+- figure out why frontend is trying to get favicon.ico
+- should I be tracking this in git: `tsconfig.app.tsbuildinfo`?
 
 ### Long term
 
