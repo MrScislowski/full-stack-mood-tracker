@@ -8,7 +8,6 @@
 
 ### This branch
 
-- fix the issue with child process spawning on Windows
 - separate backend into route file
 - implement some sort of tagcloud of all the emotions that have been logged or something
 - test this tagcloud

@@ -6,19 +6,30 @@ import {
   beforeAll,
   afterAll,
 } from "vitest";
-import { spawn } from "child_process";
+import { spawn, ChildProcessWithoutNullStreams } from "child_process";
 import entriesService from "../services/entriesService";
 import { MoodEntrySansId } from "../../types";
 
-let server;
+let server: ChildProcessWithoutNullStreams;
 
 beforeAll(() => {
   return new Promise<void>((resolve) => {
-    server = spawn("json-server", ["--watch", "db.json", "--port", "3001"]);
-    server.stdout.on("data", (data) => {
+    server = spawn("json-server", ["--watch", "db.json", "--port", "3001"], {
+      shell: true,
+    });
+
+    server.stdout.on("data", (data: Buffer): void => {
       if (data.toString().includes("JSON Server started")) {
         resolve();
+      } else {
+        console.log(
+          `Expected 'JSON Server started'... got: ${data.toString()}`,
+        );
       }
+    });
+
+    server.on("error", (err) => {
+      console.log(`Error starting server: ${JSON.stringify(err, null, 2)}`);
     });
   });
 });
