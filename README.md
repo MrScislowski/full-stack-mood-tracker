@@ -8,6 +8,8 @@
 
 ### This branch
 
+- improve package.json scripts to not have stuff like `cd` in them
+- have extensive tests run when I tag a new version
 - separate backend into route file
 - implement some sort of tagcloud of all the emotions that have been logged or something
 - test this tagcloud
