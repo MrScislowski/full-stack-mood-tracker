@@ -1,5 +1,5 @@
-import * as express from "express";
-import * as path from "path";
+import express from "express";
+import path from "path";
 import { newMoodEntrySchema } from "../types";
 import entriesService from "./services/entriesService";
 
@@ -8,7 +8,10 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.use(express.static(path.resolve(__dirname, "../dist"))); // serves up the frontend
+const frontendBuildDir =
+  process.env.NODE_ENV === "dev" ? "../frontend/dist" : "./frontend/dist";
+
+app.use(express.static(path.resolve(frontendBuildDir))); // serves up the frontend
 
 app.get("/api/hello", (req, res) => {
   res.send("hello!");

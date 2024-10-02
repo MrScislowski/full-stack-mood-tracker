@@ -1,0 +1,23 @@
+name: Lint and build
+
+on:
+  push:
+    branches:
+      - feature/github-actions
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: install dependencies
+        run: pnpm install
+      - name: run linter
+        run: pnpm run lint
+      - name: build
+        run: pnpm run build
+      - name: unit tests
+        run: pnpm run test:unit

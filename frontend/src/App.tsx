@@ -1,4 +1,4 @@
-import { MoodEnum } from "../types";
+import { MoodEnum } from "../../types";
 
 function App() {
   const emotionList = MoodEnum.options;
