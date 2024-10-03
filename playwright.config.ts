@@ -75,12 +75,12 @@ export default defineConfig({
     {
       command: "pnpm run start",
       url: "http://localhost:3000",
-      reuseExistingServer: !process.env.CI,
+      reuseExistingServer: true,
     },
     {
       command: "pnpm run dev:db",
       url: "http://localhost:3001",
-      reuseExistingServer: !process.env.CI,
+      reuseExistingServer: true,
     },
   ],
 });

@@ -12,6 +12,10 @@
 
 - deploy to digital ocean
 
+  - trigger rebuild on push to main
+  - set up reverse proxy using nginx
+  - set up ssl using let's encrypt
+
 - improve package.json scripts to not have stuff like `cd` in them
 - have extensive tests run when I tag a new version
 - separate backend into route file

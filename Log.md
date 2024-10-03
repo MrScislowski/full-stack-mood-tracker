@@ -138,6 +138,7 @@ pnpm lint-staged
     ```
 
   - configure pm2 to do the right thing.
+
     ```sh
     pm2 start backend/dist/backend/index.js
     pm2 save
@@ -148,8 +149,20 @@ pnpm lint-staged
     # pm2 unstartup systemd
     ```
 
+  - allow github actions to log in to the `nodeapp` user...
+
+    - generate the key pair
+
+      ```sh
+      ssh-keygen -t ed25519 -C "mr.scislowski@gmail.com"
+      ```
+
+    - add the public key to the `.ssh/authorized_keys` file of nodeapp user
+
+    - use the private key in the github actions workflow with name `SERVER_SSH_KEY`
+
 ### Still to do
 
+- make a github actions workflow to do all this
 - set up a reverse proxy using nginx
 - set up ssl using let's encrypt
-- make a github actions workflow to do all this
