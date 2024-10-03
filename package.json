@@ -16,7 +16,8 @@
     "test:unit": "vitest run --dir backend",
     "test:e2e-full": "playwright test",
     "test:e2e-fast": "playwright test --project=chromium",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:extensive": "pnpm run build && pnpm run test:unit && pnpm run test:e2e-full"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -27,6 +28,7 @@
   "dependencies": {
     "axios": "^1.7.7",
     "child_process": "^1.0.2",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.21.0",
     "json-server": "1.0.0-beta.3",
@@ -37,6 +39,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@playwright/test": "^1.47.2",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/json-server": "^0.14.7",
     "@types/node": "^22.7.4",

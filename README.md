@@ -6,10 +6,24 @@
 
 ## To-do
 
-- get github actions automated with tests etc
-- frontend actually adds / gets from backend
-- add error tracking, maybe with middleware
+### This branch
+
+### Long term
+
 - deploy to digital ocean
+
+- improve package.json scripts to not have stuff like `cd` in them
+- have extensive tests run when I tag a new version
+- separate backend into route file
+- implement some sort of tagcloud of all the emotions that have been logged or something
+- test this tagcloud
+- add error tracking, maybe with middleware
+- test this error tracking
+- figure out why frontend is trying to get favicon.ico
+- should I be tracking this in git: `tsconfig.app.tsbuildinfo`?
+
+- look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
+- protect main branch; implement other such security measures
 - send notifications to slack from github actions
 - get tailwindcss and/or chakra on there
 - start using db from oracle or azure or aws

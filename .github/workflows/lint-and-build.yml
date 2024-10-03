@@ -3,7 +3,7 @@ name: Lint and build
 on:
   push:
     branches:
-      - feature/github-actions
+      - "feature/**"
 
 jobs:
   lint-and-build:

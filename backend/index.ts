@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import path from "path";
 import { newMoodEntrySchema } from "../types";
 import entriesService from "./services/entriesService";
@@ -7,6 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 const frontendBuildDir =
   process.env.NODE_ENV === "dev" ? "../frontend/dist" : "./frontend/dist";
@@ -18,7 +20,6 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.post("/api/entries", async (req, res) => {
-  console.log(req.body);
   const newMoodEntry = newMoodEntrySchema.parse({
     ...req.body,
     timestamp: new Date().toISOString(),

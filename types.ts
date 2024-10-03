@@ -1,10 +1,17 @@
 import * as z from "zod";
 
-export const MoodEnum = z.enum(["joy", "sadness", "fear", "anger", "disgust"]);
+export const ZodMoodEnum = z.enum([
+  "joy",
+  "sadness",
+  "fear",
+  "anger",
+  "disgust",
+]);
+export type MoodEnum = z.infer<typeof ZodMoodEnum>;
 
 export const newMoodEntrySchema = z.object({
   timestamp: z.string().datetime(),
-  mood: MoodEnum,
+  mood: ZodMoodEnum,
 });
 
 export type MoodEntrySansId = z.infer<typeof newMoodEntrySchema>;
