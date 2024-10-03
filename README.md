@@ -8,6 +8,10 @@
 
 ### This branch
 
+### Long term
+
+- deploy to digital ocean
+
 - improve package.json scripts to not have stuff like `cd` in them
 - have extensive tests run when I tag a new version
 - separate backend into route file
@@ -18,11 +22,8 @@
 - figure out why frontend is trying to get favicon.ico
 - should I be tracking this in git: `tsconfig.app.tsbuildinfo`?
 
-### Long term
-
 - look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
 - protect main branch; implement other such security measures
-- deploy to digital ocean
 - send notifications to slack from github actions
 - get tailwindcss and/or chakra on there
 - start using db from oracle or azure or aws
