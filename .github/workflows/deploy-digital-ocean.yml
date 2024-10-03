@@ -17,7 +17,7 @@ jobs:
 
       - name: attempt to ssh into digital ocean droplet
         run: |
-          ssh nodeapp@159.223.191.151 << EOF
+          ssh nodeapp@159.223.191.151 /bin/bash << EOF
           ls
           EOF
 
