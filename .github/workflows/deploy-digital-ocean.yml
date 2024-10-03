@@ -1,0 +1,31 @@
+name: Deploy to DigitalOcean
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: attempt to ssh into digital ocean droplet
+        run: |
+          ssh nodeapp@159.223.191.151 << EOF
+          ls
+          EOF
+
+      # - name: Deploy to DigitalOcean
+      #   run: |
+      #     ssh nodeapp@your_droplet_ip << EOF
+      #       cd ~/your_repo
+      #       git pull origin main
+      #       npm install
+      #       pm2 restart your_main_file.js
+      #     EOF
