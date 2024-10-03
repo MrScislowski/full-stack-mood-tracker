@@ -45,7 +45,7 @@ Add this to `package.json` (not inside "scripts"; in its own root level):
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "perttier --write"
+      "prettier --write"
     ]
   },
 ```
@@ -55,3 +55,31 @@ Put this in `.husky/pre-commit`:
 ```sh
 pnpm lint-staged
 ```
+
+## Digital Ocean
+
+- Log in to the droplet
+
+  ```sh
+  ssh root@digital-ocean-droplet-ip
+  ```
+
+  (I could verify the fingerprint of the digital ocean droplet by running `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub` on the digital ocean web console)
+
+- set up node
+
+  ```sh
+  sudo apt update
+  sudo apt install nodejs npm
+  node --version # v18.19.1
+  npm --version # 9.2.0
+  ```
+
+- set up github access to private repos on droplet
+
+  ```
+  ssh-keygen -t rsa -b 4096 -C "mr.scislowski@gmail.com"
+  cat ~/.ssh/id_rsa.pub
+  ```
+
+  and copy/paste this into a new github ssh key
