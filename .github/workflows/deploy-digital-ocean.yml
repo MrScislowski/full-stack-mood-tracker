@@ -38,7 +38,11 @@ jobs:
 
       - name: install dependencies on Digital Ocean
         run: |
+          ssh nodeapp@159.223.191.151 /bin/bash << EOF
+          cd ~/full-stack-mood-tracker
           pnpm --prod install
+
+      #     pm2 restart ./backend/dist/backend/index.js
 
       # - name: Deploy to DigitalOcean
       #   run: |
