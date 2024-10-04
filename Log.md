@@ -161,8 +161,38 @@ pnpm lint-staged
 
     - use the private key in the github actions workflow with name `SERVER_SSH_KEY`
 
+    - set the `KNOWN_HOSTS` secret on github to the output from
+
+      ```sh
+      ssh-keyscan <ip address of droplet>
+      ```
+
+      - then this pretty much worked:
+
+      ```yml
+      jobs:
+        deploy:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Install SSH key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                key: ${{ secrets.SERVER_SSH_KEY }}
+                known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+            - name: Deploy to DigitalOcean
+              run: |
+                ssh nodeapp@droplet-ip-address /bin/bash << EOF
+                cd ~/full-stack-mood-tracker
+                git pull origin main
+                pnpm install
+                pm2 restart ./backend/dist/backend/index.js
+                EOF
+      ```
+
 ### Still to do
 
 - make a github actions workflow to do all this
 - set up a reverse proxy using nginx
 - set up ssl using let's encrypt
+- what is github passkey... is it like a ssh type thing?
