@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <p>Welcome to the mood tracker</p>
+      <p>Current build from Thu 3rd Oct @ 10:26pm</p>
       <p>Choose an emotion below:</p>
       {emotionList.map((emotion) => (
         <button key={emotion} onClick={() => handleClick(emotion)}>

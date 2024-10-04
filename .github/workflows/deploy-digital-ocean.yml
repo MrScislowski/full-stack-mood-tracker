@@ -15,22 +15,11 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-      - name: list contents of .ssh directory, including permissions
-        run: |
-          pwd
-          ls -la
-
-      - name: attempt to ssh into digital ocean droplet
+      - name: Deploy to DigitalOcean
         run: |
           ssh nodeapp@159.223.191.151 /bin/bash << EOF
-          ls
+          cd ~/full-stack-mood-tracker
+          git pull origin main
+          pnpm install
+          pm2 restart ./backend/dist/backend/index.js
           EOF
-
-      # - name: Deploy to DigitalOcean
-      #   run: |
-      #     ssh nodeapp@your_droplet_ip << EOF
-      #       cd ~/your_repo
-      #       git pull origin main
-      #       npm install
-      #       pm2 restart your_main_file.js
-      #     EOF
