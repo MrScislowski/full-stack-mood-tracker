@@ -190,6 +190,24 @@ pnpm lint-staged
                 EOF
       ```
 
+### Resources problems
+
+I think we were running out of memory. Yikes. ChatGPT advised this as root:
+
+```sh
+# Allocate a 1GB swap file (or increase size if needed)
+sudo fallocate -l 1G /swapfile
+# Set permissions for the file
+sudo chmod 600 /swapfile
+# Setup swap area
+sudo mkswap /swapfile
+# Enable the swap file
+sudo swapon /swapfile
+# Confirm swap is active
+sudo swapon --show
+
+```
+
 ### Still to do
 
 - make a github actions workflow to do all this
