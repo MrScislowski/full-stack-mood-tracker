@@ -15,6 +15,10 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
+      - name: list contents of .ssh directory, including permissions
+        run: |
+          ls -l .ssh/*
+
       - name: attempt to ssh into digital ocean droplet
         run: |
           ssh nodeapp@159.223.191.151 /bin/bash << EOF
