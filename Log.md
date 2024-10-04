@@ -250,11 +250,58 @@ And that actually worked. I don't feel great about this, and it's really not cod
 - Set up SSL
 
   - bought `scislowski.dev` on cloudflare for ~$12/yr
-  - update nginx configuration to use your domain name
-  - ... let's try to understand SSL (let's encrypt, vs self signed certificates, vs cloudflare's auto ssl process...)
+
+  - update nginx configuration to use my domain name
+    (change from the raw IP to `scislowski.dev` in /etc/nginx/sites-available/full-stack-mood-tracker)
+
+  - generate a certificate (as root on droplet):
+
+    ```sh
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+    ```
+
+  - `/etc/nginx/sites-available-full-stack-mood-tracker`:
+
+  ```
+  server {
+      listen 443 ssl;
+      listen [::]:443 ssl;
+
+      server_name your_domain.com;  # Replace with your domain or IP address
+
+      ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+      ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+      location / {
+          proxy_pass http://localhost:your_app_port;  # Forward traffic to your app
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+  }
+
+  # Optional: Redirect HTTP to HTTPS
+  server {
+      listen 80;
+      listen [::]:80;
+
+      server_name your_domain.com;
+
+      return 301 https://$host$request_uri;
+  }
+
+  ```
+
+  - check configuration, and restart nginx:
+
+    ```sh
+    nginx -t
+    systemctl restart nginx
+    ```
 
 ### Still to do
 
-- set up ssl
 - make a github actions workflow to do all this
 - what is github passkey... is it like a ssh type thing?
