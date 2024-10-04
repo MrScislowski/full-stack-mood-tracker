@@ -34,7 +34,7 @@ jobs:
 
       - name: copy files over to Digital Ocean
         run: |
-          scp nodeapp@159.223.191.151 package.json ~/full-stack-mood-tracker/
+          scp package.json nodeapp@159.223.191.151:/full-stack-mood-tracker
 
       # - name: Deploy to DigitalOcean
       #   run: |
