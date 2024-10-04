@@ -34,7 +34,11 @@ jobs:
 
       - name: copy files over to Digital Ocean
         run: |
-          scp package.json nodeapp@159.223.191.151:~/full-stack-mood-tracker
+          scp package.json pnpm-lock.yaml nodeapp@159.223.191.151:~/full-stack-mood-tracker
+
+      - name: install dependencies on Digital Ocean
+        run: |
+          pnpm --prod install
 
       # - name: Deploy to DigitalOcean
       #   run: |
