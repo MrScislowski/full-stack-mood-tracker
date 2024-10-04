@@ -190,7 +190,7 @@ pnpm lint-staged
                 EOF
       ```
 
-### Resources problems
+#### Resources problems
 
 I think we were running out of memory. Yikes. ChatGPT advised this as root:
 
@@ -205,12 +205,103 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 # Confirm swap is active
 sudo swapon --show
-
 ```
+
+And that actually worked. I don't feel great about this, and it's really not coding so leaving it for now...
+
+### Further advanced configuration
+
+- set up a reverse proxy using nginx
+
+  - install nginx
+
+  ```sh
+  sudo apt install nginx
+  ```
+
+  - edit configuration file `/etc/nginx/sites-available/full-stack-mood-tracker` to contain
+
+  ```
+  server {
+    listen 80;
+    server_name 159.223.191.151;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+  }                                                                                      }
+  ```
+
+  - enable the configuration
+
+  ```sh
+    ln -s /etc/nginx/sites-available/full-stack-mood-tracker /etc/nginx/sites-enabled
+    sudo nginx -t
+    sudo systemctl restart nginx
+  ```
+
+  - This worked! Since going to http://159.223.191.151 (without specifying a port number), loaded the page
+
+- Set up SSL
+
+  - bought `scislowski.dev` on cloudflare for ~$12/yr
+
+  - update nginx configuration to use my domain name
+    (change from the raw IP to `scislowski.dev` in /etc/nginx/sites-available/full-stack-mood-tracker)
+
+  - generate a certificate (as root on droplet):
+
+    ```sh
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+    ```
+
+  - `/etc/nginx/sites-available-full-stack-mood-tracker`:
+
+  ```
+  server {
+      listen 443 ssl;
+      listen [::]:443 ssl;
+
+      server_name your_domain.com;  # Replace with your domain or IP address
+
+      ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+      ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+      location / {
+          proxy_pass http://localhost:your_app_port;  # Forward traffic to your app
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+  }
+
+  # Optional: Redirect HTTP to HTTPS
+  server {
+      listen 80;
+      listen [::]:80;
+
+      server_name your_domain.com;
+
+      return 301 https://$host$request_uri;
+  }
+
+  ```
+
+  - check configuration, and restart nginx:
+
+    ```sh
+    nginx -t
+    systemctl restart nginx
+    ```
 
 ### Still to do
 
 - make a github actions workflow to do all this
-- set up a reverse proxy using nginx
-- set up ssl using let's encrypt
 - what is github passkey... is it like a ssh type thing?

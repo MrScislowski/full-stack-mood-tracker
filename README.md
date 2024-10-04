@@ -14,6 +14,7 @@
 
   - set up reverse proxy using nginx
   - set up ssl using let's encrypt
+  - ask AI why not just deploy the dist/js files built by the github action
 
 - the deployed backend doesn't work; it's trying to go to "localhost:3000" etc...
 - improve package.json scripts to not have stuff like `cd` in them
