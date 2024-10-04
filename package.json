@@ -16,7 +16,6 @@
     "test:unit": "vitest run --dir backend",
     "test:e2e-full": "playwright test",
     "test:e2e-fast": "playwright test --project=chromium",
-    "prepare": "husky",
     "test:extensive": "pnpm run build && pnpm run test:unit && pnpm run test:e2e-full"
   },
   "lint-staged": {

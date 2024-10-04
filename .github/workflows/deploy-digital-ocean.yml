@@ -15,12 +15,33 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-      - name: Deploy to DigitalOcean
+      - name: Download code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: run linter
+        run: pnpm run lint
+
+      - name: build
+        run: pnpm run build
+
+      - name: copy files over to Digital Ocean
+        run: |
+          scp package.json pnpm-lock.yaml nodeapp@159.223.191.151:~/full-stack-mood-tracker
+          rsync -r backend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/backend
+          rsync -r frontend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/frontend
+
+      - name: Install dependencies and start server
         run: |
           ssh nodeapp@159.223.191.151 /bin/bash << EOF
           cd ~/full-stack-mood-tracker
-          git pull origin main
-          pnpm install
-          pnpm build
+          pnpm --prod install
           pm2 restart ./backend/dist/backend/index.js
           EOF

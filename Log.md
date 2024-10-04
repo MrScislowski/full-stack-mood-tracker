@@ -301,7 +301,4 @@ And that actually worked. I don't feel great about this, and it's really not cod
     systemctl restart nginx
     ```
 
-### Still to do
-
-- make a github actions workflow to do all this
-- what is github passkey... is it like a ssh type thing?
+### Deploying the `dist` directories so that my droplet doesn't run out of memory building
