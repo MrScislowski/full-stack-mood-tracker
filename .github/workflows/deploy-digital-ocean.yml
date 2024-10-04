@@ -35,8 +35,8 @@ jobs:
       - name: copy files over to Digital Ocean
         run: |
           scp package.json pnpm-lock.yaml nodeapp@159.223.191.151:~/full-stack-mood-tracker
-          rsync -r backend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/backend/dist
-          rsync -r frontend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/frontend/dist
+          rsync -r backend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/backend
+          rsync -r frontend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/frontend
 
       - name: Install dependencies and start server
         run: |
