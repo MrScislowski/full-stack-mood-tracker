@@ -12,21 +12,15 @@
 
 - deploy to digital ocean
 
-  - set up reverse proxy using nginx
-  - set up ssl using let's encrypt
-  - ask AI why not just deploy the dist/js files built by the github action
-
 - the deployed backend doesn't work; it's trying to go to "localhost:3000" etc...
 - improve package.json scripts to not have stuff like `cd` in them
 - if you're trying to test out github action scripts, and they don't show up unless you push to main (since workflow_dispatch triggered ones don't show until you do that), which is a real pain... is there a way around that?
-- have extensive tests run when I tag a new version
 - separate backend into route file
 - implement some sort of tagcloud of all the emotions that have been logged or something
 - test this tagcloud
 - add error tracking, maybe with middleware
 - test this error tracking
 - figure out why frontend is trying to get favicon.ico
-- should I be tracking this in git: `tsconfig.app.tsbuildinfo`?
 
 - look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
 - protect main branch; implement other such security measures
