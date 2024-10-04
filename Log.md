@@ -190,7 +190,7 @@ pnpm lint-staged
                 EOF
       ```
 
-### Resources problems
+#### Resources problems
 
 I think we were running out of memory. Yikes. ChatGPT advised this as root:
 
@@ -205,12 +205,56 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 # Confirm swap is active
 sudo swapon --show
-
 ```
+
+And that actually worked. I don't feel great about this, and it's really not coding so leaving it for now...
+
+### Further advanced configuration
+
+- set up a reverse proxy using nginx
+
+  - install nginx
+
+  ```sh
+  sudo apt install nginx
+  ```
+
+  - edit configuration file `/etc/nginx/sites-available/full-stack-mood-tracker` to contain
+
+  ```
+  server {
+    listen 80;
+    server_name 159.223.191.151;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+  }                                                                                      }
+  ```
+
+  - enable the configuration
+
+  ```sh
+    ln -s /etc/nginx/sites-available/full-stack-mood-tracker /etc/nginx/sites-enabled
+    sudo nginx -t
+    sudo systemctl restart nginx
+  ```
+
+  - This worked! Since going to http://159.223.191.151 (without specifying a port number), loaded the page
+
+- Set up SSL
+
+  - bought `scislowski.dev` on cloudflare for ~$12/yr
+  - update nginx configuration to use your domain name
+  - ... let's try to understand SSL (let's encrypt, vs self signed certificates, vs cloudflare's auto ssl process...)
 
 ### Still to do
 
+- set up ssl
 - make a github actions workflow to do all this
-- set up a reverse proxy using nginx
-- set up ssl using let's encrypt
 - what is github passkey... is it like a ssh type thing?
