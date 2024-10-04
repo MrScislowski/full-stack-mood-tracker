@@ -45,14 +45,3 @@ jobs:
           pnpm --prod install
           pm2 restart ./backend/dist/backend/index.js
           EOF
-
-      #     pm2 restart ./backend/dist/backend/index.js
-
-      # - name: Deploy to DigitalOcean
-      #   run: |
-      #     ssh nodeapp@159.223.191.151 /bin/bash << EOF
-      #     cd ~/full-stack-mood-tracker
-      #     pnpm install
-      #     pnpm build
-      #     pm2 restart ./backend/dist/backend/index.js
-      #     EOF
