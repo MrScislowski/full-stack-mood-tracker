@@ -17,7 +17,8 @@ jobs:
 
       - name: list contents of .ssh directory, including permissions
         run: |
-          ls -l .ssh/*
+          pwd
+          ls -la
 
       - name: attempt to ssh into digital ocean droplet
         run: |
