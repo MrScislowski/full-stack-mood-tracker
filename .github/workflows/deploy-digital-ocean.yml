@@ -35,12 +35,16 @@ jobs:
       - name: copy files over to Digital Ocean
         run: |
           scp package.json pnpm-lock.yaml nodeapp@159.223.191.151:~/full-stack-mood-tracker
+          scp -r backend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/backend/dist
+          scp -r frontend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/frontend/dist
 
       - name: install dependencies on Digital Ocean
         run: |
           ssh nodeapp@159.223.191.151 /bin/bash << EOF
           cd ~/full-stack-mood-tracker
           pnpm --prod install
+          pm2 restart ./backend/dist/backend/index.js
+          EOF
 
       #     pm2 restart ./backend/dist/backend/index.js
 
