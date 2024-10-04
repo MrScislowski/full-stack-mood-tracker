@@ -21,5 +21,6 @@ jobs:
           cd ~/full-stack-mood-tracker
           git pull origin main
           pnpm install
+          pnpm build
           pm2 restart ./backend/dist/backend/index.js
           EOF
