@@ -2,28 +2,21 @@
 
 ## Summary
 
-## Goals
+This web app was created to experiment with the CI/CD resources described in [part 11](https://fullstackopen.com/en/part11)
 
-## To-do
+### feature/production-db-subprocess
 
-### This branch
-
-### Long term
-
-- deploy to digital ocean
-
-- the deployed backend doesn't work; it's trying to go to "localhost:3000" etc...
-- improve package.json scripts to not have stuff like `cd` in them
-- if you're trying to test out github action scripts, and they don't show up unless you push to main (since workflow_dispatch triggered ones don't show until you do that), which is a real pain... is there a way around that?
-- separate backend into route file
-- implement some sort of tagcloud of all the emotions that have been logged or something
-- test this tagcloud
-- add error tracking, maybe with middleware
-- test this error tracking
+- We're expecting the database to be running in both development and production. For now, let's somehow start them with a subprocess or something. Playwright has a really nice way of doing this. Using child processes in node seemed a bit more sus (not good control over whether they were running nicely). I wonder whether doing some sort of npm-run-all, or concurrently, or whatever is the right set-up here?
 - figure out why frontend is trying to get favicon.ico
+- get rid of husky, I guess? Or maybe make it a devDependency? The thing is, if `prepare` in package.json always gets run (even in production), this seems like a suboptimal setup
 
+### Other tasks
+
+- separate backend into route file
 - look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
 - protect main branch; implement other such security measures
-- send notifications to slack from github actions
 - get tailwindcss and/or chakra on there
-- start using db from oracle or azure or aws
+- implement some sort of tagcloud of all the emotions that have been logged or something
+  - test this tagcloud
+  - add error tracking, maybe with middleware
+  - test this error tracking
