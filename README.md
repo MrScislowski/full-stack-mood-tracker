@@ -4,10 +4,6 @@
 
 This web app was created to experiment with the CI/CD resources described in [part 11](https://fullstackopen.com/en/part11)
 
-### feature/production-db-subprocess
-
-- get rid of husky, I guess? Or maybe make it a devDependency? The thing is, if `prepare` in package.json always gets run (even in production), this seems like a suboptimal setup
-
 ### Other tasks
 
 - separate backend into route file
@@ -18,3 +14,4 @@ This web app was created to experiment with the CI/CD resources described in [pa
   - test this tagcloud
   - add error tracking, maybe with middleware
   - test this error tracking
+- Reinstate husky while [understanding it more](https://typicode.github.io/husky/get-started.html)

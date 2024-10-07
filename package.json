@@ -18,12 +18,6 @@
     "test:e2e-fast": "playwright test --project=chromium",
     "test:extensive": "pnpm run build && pnpm run test:unit && pnpm run test:e2e-full"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "axios": "^1.7.7",
     "child_process": "^1.0.2",
@@ -52,7 +46,6 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "ts-node-dev": "^2.0.0",
