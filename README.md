@@ -6,7 +6,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ### This branch
 
-- it's OK for the backend to talk to `localhost:3001` for the DB, because backend and DB are going to be on the same place. But that's not the case for the frontend right now. I think I need node-env stuff to define where the backend is. Probably a config.ts that looks at process.env or whatever. Then use cross-env to set these variables.
+- pm2 is just starting the node process, but now my "start" script in package.json involves starting two commands concurrently
 
 ### Other tasks
 
