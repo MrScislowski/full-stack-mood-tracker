@@ -6,7 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ### feature/production-db-subprocess
 
-- We're expecting the database to be running in both development and production. For now, let's somehow start them with a subprocess or something. Playwright has a really nice way of doing this. Using child processes in node seemed a bit more sus (not good control over whether they were running nicely). I wonder whether doing some sort of npm-run-all, or concurrently, or whatever is the right set-up here?
 - get rid of husky, I guess? Or maybe make it a devDependency? The thing is, if `prepare` in package.json always gets run (even in production), this seems like a suboptimal setup
 
 ### Other tasks
