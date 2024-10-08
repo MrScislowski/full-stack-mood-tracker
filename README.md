@@ -6,12 +6,13 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ### Other tasks
 
-- separate backend into route file
 - look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
 - protect main branch; implement other such security measures
-- get tailwindcss and/or chakra on there
 - implement some sort of tagcloud of all the emotions that have been logged or something
   - test this tagcloud
   - add error tracking, maybe with middleware
   - test this error tracking
+- get tailwindcss and/or chakra on there
+- separate backend into route file
 - Reinstate husky while [understanding it more](https://typicode.github.io/husky/get-started.html)
+- the unit tests are usually passing, but the extensive tests are failing because the json-server isn't starting, because there's already a service started on that port... (this is on Windows; maybe ignore this?)
