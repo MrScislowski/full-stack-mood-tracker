@@ -6,7 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- look into separating out actions workflow to dependent (`needs`) steps. Maybe use pnpm and cache stuff to save time etc
 - protect main branch; implement other such security measures
 - implement some sort of tagcloud of all the emotions that have been logged or something
   - test this tagcloud
