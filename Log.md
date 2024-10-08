@@ -302,3 +302,34 @@ And that actually worked. I don't feel great about this, and it's really not cod
     ```
 
 ### Deploying the `dist` directories so that my droplet doesn't run out of memory building
+
+```yaml
+- name: copy files over to Digital Ocean
+  run: |
+    scp package.json pnpm-lock.yaml nodeapp@159.223.191.151:~/full-stack-mood-tracker
+    rsync -r backend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/backend
+    rsync -r frontend/dist nodeapp@159.223.191.151:~/full-stack-mood-tracker/frontend
+
+- name: Install dependencies and start server
+  run: |
+    ssh nodeapp@159.223.191.151 /bin/bash << EOF
+    cd ~/full-stack-mood-tracker
+    pnpm --prod install
+    pm2 restart ./backend/dist/backend/index.js
+    EOF
+```
+
+### Now that I'm starting the db along with the backend, I should change my `pm2` commands
+
+- stop the existing script
+
+  ```sh
+  pm2 unstartup # as nodeapp user
+  sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 unstartup systemd -u nodeapp --hp /home/nodeapp # as root; pm2 told me what to type
+  pm2 start npm --name "mood tracker" -- start # as nodeapp
+  pm2 stop 0 # nodeapp
+  pm2 delete 0 # nodeapp
+  pm2 save # nodeapp
+  pm2 startup # nodeapp
+  sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u nodeapp --hp /home/nodeapp # root
+  ```
