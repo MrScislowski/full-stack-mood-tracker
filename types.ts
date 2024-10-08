@@ -16,6 +16,8 @@ export const newMoodEntrySchema = z.object({
 
 export type MoodEntrySansId = z.infer<typeof newMoodEntrySchema>;
 
-export interface MoodEntry extends MoodEntrySansId {
-  id: string;
-}
+export const moodEntrySchema = newMoodEntrySchema.extend({
+  id: z.string(),
+});
+
+export type MoodEntry = z.infer<typeof moodEntrySchema>;

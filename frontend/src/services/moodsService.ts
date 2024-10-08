@@ -10,4 +10,9 @@ const postMoodEntry = async (
   return response.data;
 };
 
-export default { postMoodEntry };
+const getMoodEntries = async (): Promise<MoodEntry[]> => {
+  const response = await axios.get(`${config.BACKEND_URL}/api/entries`);
+  return response.data;
+};
+
+export default { postMoodEntry, getMoodEntries };

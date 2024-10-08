@@ -10,13 +10,21 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-const frontendBuildDir =
-  process.env.NODE_ENV === "dev" ? "../frontend/dist" : "./frontend/dist";
+// const frontendBuildDir =
+//   process.env.NODE_ENV === "development"
+//     ? "../frontend/dist"
+//     : "./frontend/dist";
 
+const frontendBuildDir = "./frontend/dist";
 app.use(express.static(path.resolve(frontendBuildDir))); // serves up the frontend
 
 app.get("/api/hello", (req, res) => {
   res.send("hello!");
+});
+
+app.get("/api/entries", async (req, res) => {
+  const response = await entriesService.getAll();
+  res.json(response);
 });
 
 app.post("/api/entries", async (req, res) => {
