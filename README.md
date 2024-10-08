@@ -6,11 +6,10 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- protect main branch; implement other such security measures
-- implement some sort of tagcloud of all the emotions that have been logged or something
-  - test this tagcloud
-  - add error tracking, maybe with middleware
-  - test this error tracking
+- once a post for a new emotion entry is successful, put it in the array w/o a manual refresh
+- test this tagcloud
+- add error tracking, maybe with middleware
+- test this error tracking
 
 ### Other tasks
 
