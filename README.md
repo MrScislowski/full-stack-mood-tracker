@@ -6,8 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- checking development mode doesn't work on the frontend b/c vite build sets node_env automatically. But the frontend is being served up by the backend! So we don't need environment variables there! Localhost:3000 will always work, right?
-- once a post for a new emotion entry is successful, put it in the array w/o a manual refresh
 - test this tagcloud
 - add error tracking, maybe with middleware
 - test this error tracking

@@ -6,8 +6,9 @@ function App() {
   const [emotionLog, setEmotionLog] = useState<MoodEntry[]>([]);
   const emotionList = ZodMoodEnum.options;
 
-  const handleClick = (emotion: MoodEnum) => {
-    moodsService.postMoodEntry({ mood: emotion });
+  const handleClick = async (emotion: MoodEnum) => {
+    const newMoodEntry = await moodsService.postMoodEntry({ mood: emotion });
+    setEmotionLog([...emotionLog, newMoodEntry]);
   };
 
   useEffect(() => {
