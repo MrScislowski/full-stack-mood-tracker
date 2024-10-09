@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <p>Welcome to the mood tracker</p>
+      <p className="text-3xl">Welcome to the mood tracker</p>
       <p>Current build from Tuesday 8th Oct @ 12:05pm</p>
       <p>Choose an emotion below:</p>
       <div style={{ display: "flex" }}>

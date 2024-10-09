@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "concurrently \"json-server -p 3001 db.json\" \"cross-env NODE_ENV=production node ./backend/dist/backend/index.js\"",
-    "dev": "cd ./frontend && tsc -b && vite build --mode development && cd ../ && concurrently \"json-server -p 3001 db.json\" \"cd ./backend && cross-env NODE_ENV=development ts-node-dev index.ts\"",
-    "build:frontend": "cd ./frontend && tsc -b && vite build",
+    "dev": "tailwindcss -i frontend/src/input.css -o frontend/src/output.css && cd ./frontend && tsc -b && vite build --mode development && cd ../ && concurrently \"json-server -p 3001 db.json\" \"cd ./backend && cross-env NODE_ENV=development ts-node-dev index.ts\"",
+    "build:frontend": "tailwindcss -i frontend/src/input.css -o frontend/src/output.css && cd ./frontend && tsc -b && vite build",
     "build:backend": "cd ./backend && tsc -b",
     "build": "pnpm run build:frontend && pnpm run build:backend",
     "lint": "eslint .",
@@ -45,6 +45,7 @@
     "globals": "^15.9.0",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.13",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.0.1",
