@@ -2,9 +2,13 @@
 
 ## Summary
 
-This web app was created to experiment with the CI/CD resources described in [part 11](https://fullstackopen.com/en/part11)
+This web app was created to experiment with the CI/CD resources described in [part 11](https://fullstackopen.com/en/part11). I decided to experiment with using the build tools to try to deploy to a Digital Ocean droplet. It's hosted at scislowski.dev.
 
 ## This branch
+
+- protect the repo so merges have to be reviewed
+- install tailwindcss
+- separate app into a few components, and style them using tailwind
 
 ### Other tasks
 
