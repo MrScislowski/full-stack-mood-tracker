@@ -562,3 +562,8 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+
+.text-cyan-700 {
+  --tw-text-opacity: 1;
+  color: rgb(14 116 144 / var(--tw-text-opacity));
+}

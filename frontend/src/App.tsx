@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { moodEntrySchema, MoodEnum, MoodEntry, ZodMoodEnum } from "../../types";
 import moodsService from "./services/moodsService";
+import AppTitle from "./components/AppTitle";
 
 function App() {
   const [emotionLog, setEmotionLog] = useState<MoodEntry[]>([]);
@@ -19,8 +20,7 @@ function App() {
 
   return (
     <>
-      <p className="text-3xl">Welcome to the mood tracker</p>
-      <p>Current build from Tuesday 8th Oct @ 12:05pm</p>
+      <AppTitle />
       <p>Choose an emotion below:</p>
       <div style={{ display: "flex" }}>
         {emotionList.map((emotion) => (

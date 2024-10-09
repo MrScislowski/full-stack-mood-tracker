@@ -6,7 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- install tailwindcss
 - separate app into a few components, and style them using tailwind
 
 ### Other tasks
