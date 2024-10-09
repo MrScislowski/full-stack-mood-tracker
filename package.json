@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "concurrently \"json-server -p 3001 db.json\" \"cross-env NODE_ENV=production node ./backend/dist/backend/index.js\"",
-    "dev": "concurrently \"json-server -p 3001 db.json\" \"cd ./backend && cross-env NODE_ENV=development ts-node-dev index.ts\"",
+    "dev": "concurrently \"json-server -p 3001 db.json\" \"tailwindcss -i frontend/src/input.css -o frontend/src/output.css --watch\" \"cd ./backend && ts-node-dev index.ts\" \"cd ./frontend && vite\"",
     "build:frontend": "tailwindcss -i frontend/src/input.css -o frontend/src/output.css && cd ./frontend && tsc -b && vite build",
     "build:backend": "cd ./backend && tsc -b",
     "build": "pnpm run build:frontend && pnpm run build:backend",
