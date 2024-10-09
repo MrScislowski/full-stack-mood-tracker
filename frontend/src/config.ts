@@ -1,6 +1,3 @@
-const BACKEND_URL =
-  process.env.NODE === "development"
-    ? "http://localhost:3000"
-    : "https://scislowski.dev";
+const BACKEND_URL = "http://localhost:3000";
 
 export default { BACKEND_URL };
