@@ -6,10 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- test this tagcloud
-- add error tracking, maybe with middleware
-- test this error tracking
-
 ### Other tasks
 
 - get tailwindcss and/or chakra on there
