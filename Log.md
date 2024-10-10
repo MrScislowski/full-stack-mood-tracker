@@ -333,3 +333,36 @@ And that actually worked. I don't feel great about this, and it's really not cod
   pm2 startup # nodeapp
   sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u nodeapp --hp /home/nodeapp # root
   ```
+
+## Tailwind
+
+- install tailwind CSS
+
+  ```sh
+  pnpm install -D tailwindcss
+  pnpm dlx tailwindcss init
+  ```
+
+- configure template paths by editing `tailwind.config.js` to have line `content: ["./frontend/src/*.{html,js,ts,jsx,tsx}"],`
+
+- make file `frontend/src/input.css` with content:
+
+  ```css
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  ```
+
+- add to build process for frontend stuff in `package.json`, e.g.
+
+  ```json
+    "build:frontend": "tailwindcss -i frontend/src/input.css -o frontend/src/output.css && cd ./frontend && tsc -b && vite build"
+  ```
+
+- add the compiled css file to the html
+  ```html
+  <head>
+    <!-- ... -->
+    <link href="" />
+  </head>
+  ```

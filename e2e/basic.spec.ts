@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Basic Page Loading", () => {
   test("Page loads", async ({ page }) => {
-    await expect(page.getByText(/welcome to the mood tracker/i)).toBeVisible();
+    await expect(page.getByText(/Mood Chooser/i)).toBeVisible();
   });
 
   test("Emotion choices shown", async ({ page }) => {
