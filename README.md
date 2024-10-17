@@ -6,12 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- look into node version etc running on digital ocean so I can mirror it:
-  - Ubuntu 24.04 LTS
-  - node v18.19.1
-  - npm 9.2.0
-    => let's use node:18-alpine3.20
-- make a dev.Dockerfile for the database (e.g. using [this link](https://github.com/typicode/json-server/issues/1009#issuecomment-1910141114))
 - make a dev.Dockerfile for the backend
 - make a dev.Dockerfile for the frontend
 - join them all together in a docker-compose-dev.yml and nginx.conf
@@ -32,3 +26,9 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 - Reinstate husky while [understanding it more](https://typicode.github.io/husky/get-started.html)
 - the unit tests are usually passing, but the extensive tests are failing because the json-server isn't starting, because there's already a service started on that port... (this is on Windows; maybe ignore this?)
+
+## Info about server
+
+- Ubuntu 24.04 LTS
+- node v18.19.1
+- npm 9.2.0
