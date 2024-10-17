@@ -7,6 +7,9 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
+  - how can we have a dev.Dockerfile in `./backend`, when `./backend` doesn't have its own package.json, because we've been using a monorepo setup?
+    => make its own package.json. It's worth it to keep things lean, I think
+  - figure out how to have shared types etc
 - make a dev.Dockerfile for the frontend
 - join them all together in a docker-compose-dev.yml and nginx.conf
 
