@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MoodEntry, MoodEntrySansId } from "../../types";
+import { MoodEntry, MoodEntrySansId } from "shared";
 
 const baseUrl = "http://localhost:3001/entries";
 

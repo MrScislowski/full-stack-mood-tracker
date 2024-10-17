@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { newMoodEntrySchema } from "../types";
+import { newMoodEntrySchema } from "shared";
 import entriesService from "./services/entriesService";
 
 const app = express();
