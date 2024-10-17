@@ -7,7 +7,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
-  - make a "shared" package, as described by claude
+  - amend the build process so that frontend is built and linked when making the backend docker container
 - make a dev.Dockerfile for the frontend
 - join them all together in a docker-compose-dev.yml and nginx.conf
 
