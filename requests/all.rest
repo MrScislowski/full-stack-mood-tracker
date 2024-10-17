@@ -15,3 +15,14 @@ Content-Type: application/json
   "mood": "joy",
   "message": "hello"
 }
+
+### json-server-dev db using docker
+GET http://0.0.0.0:3001/entries
+
+### 
+POST http://0.0.0.0:3001/entries
+Content-Type: application/json
+
+{
+  "mood": "joy"
+}
