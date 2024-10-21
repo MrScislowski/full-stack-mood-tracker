@@ -7,6 +7,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
+  - fix backend script now that `shared` library uses modules
   - refactor base package.json scripts to ./frontend package.json
   - make a frontend development command using vite dev or whatever
   - make sure Dockerfile for database still works
