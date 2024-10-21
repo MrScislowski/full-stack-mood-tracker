@@ -1,4 +1,4 @@
-import { MoodEntry } from "../../../types";
+import { MoodEntry } from "shared";
 
 interface MoodLogProps {
   emotionLog: MoodEntry[];

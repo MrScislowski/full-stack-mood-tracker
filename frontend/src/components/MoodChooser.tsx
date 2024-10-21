@@ -1,4 +1,4 @@
-import { MoodEntry, MoodEnum, ZodMoodEnum } from "../../../types";
+import { MoodEntry, MoodEnum, ZodMoodEnum } from "shared";
 import moodsService from "../services/moodsService";
 
 const listOfAllEmotionOptions = ZodMoodEnum.options;

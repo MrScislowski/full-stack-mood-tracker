@@ -8,7 +8,7 @@ import {
 } from "vitest";
 import { spawn, ChildProcessWithoutNullStreams } from "child_process";
 import entriesService from "../services/entriesService";
-import { MoodEntrySansId } from "../../types";
+import { MoodEntrySansId } from "shared";
 
 let server: ChildProcessWithoutNullStreams;
 

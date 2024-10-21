@@ -1,5 +1,5 @@
 import axios from "axios";
-import { MoodEntry } from "../../../types";
+import { MoodEntry } from "shared";
 import config from "../config";
 
 const postMoodEntry = async (

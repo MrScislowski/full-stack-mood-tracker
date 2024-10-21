@@ -7,6 +7,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
+  - restructure everything to use pnpm workspaces
   - start using workspaces.
   - amend the build process so that frontend is built and linked when making the backend docker container
 - make a dev.Dockerfile for the frontend

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { moodEntrySchema, MoodEntry } from "../../types";
+import { moodEntrySchema, MoodEntry } from "shared";
 import moodsService from "./services/moodsService";
 import AppTitle from "./components/AppTitle";
 import MoodChooser from "./components/MoodChooser";
