@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { newMoodEntrySchema } from "shared";
-import entriesService from "./services/entriesService";
+import entriesService from "./services/entriesService.js";
 
 const app = express();
 const PORT = 3000;
