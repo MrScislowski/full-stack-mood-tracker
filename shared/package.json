@@ -9,9 +9,6 @@
     "prepare": "npm run build",
     "workspace-test": "echo 'doing workspace test on shared'"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

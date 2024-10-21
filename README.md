@@ -7,7 +7,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
-  - refactor base package.json and distribute scripts to ./frontend and ./backend package.jsons
+  - refactor base package.json scripts to ./frontend package.json
   - make a frontend development command using vite dev or whatever
   - make sure Dockerfile for database still works
   - make sure Dockerfile forbackend still works
@@ -31,7 +31,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 - Reinstate husky while [understanding it more](https://typicode.github.io/husky/get-started.html)
 - the unit tests are usually passing, but the extensive tests are failing because the json-server isn't starting, because there's already a service started on that port... (this is on Windows; maybe ignore this?)
 
-## Info about server
+## Info about server on digital ocean
 
 - Ubuntu 24.04 LTS
 - node v18.19.1
