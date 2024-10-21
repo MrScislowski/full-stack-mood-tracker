@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "workspace-test": "echo 'doing workspace test on shared'"
+    "workspace-test": "echo 'doing workspace test on shared'",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
