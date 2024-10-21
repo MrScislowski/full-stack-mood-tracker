@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev index.ts",
-    "workspace-test": "echo 'doing workspace test on backend'"
+    "build": "tsc -b",
+    "db:start": "json-server -p 3001 ../data/db.json",
+    "dev": "concurrently \"pnpm run db:start\" \"ts-node-dev index.ts\""
   },
   "keywords": [],
   "author": "",
