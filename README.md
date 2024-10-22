@@ -6,10 +6,9 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- make a dev.Dockerfile for the backend
-  - connect database and backends on docker; the docker version of json-server connects to 0.0.0.0 instead of localhost.... I think really this should be a docker compose with environment variables fix...
 - make a dev.Dockerfile for the frontend
 - join them all together in a docker-compose-dev.yml and nginx.conf
+- test to make sure it's a viable and dynamic development environment
 
 ### Other tasks
 
