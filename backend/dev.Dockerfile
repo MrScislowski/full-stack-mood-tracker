@@ -1,17 +1,29 @@
 FROM node:18-alpine3.20
 WORKDIR /app
 
-COPY . .
+# Copy pnpm lockfile and workspace package.json from the root directory
+COPY pnpm-lock.yaml ./
+COPY package.json ./
 
-RUN npm install
-# this next line doesn't really do anything; it's just for documentation
+COPY backend ./backend
+COPY shared ./shared
+
+# Install pnpm globally
+RUN npm install -g pnpm
+
+# Install only the dependencies for the backend and its dependencies (including shared)
+RUN pnpm install --config.confirmModulesPurge=false --filter backend...
+
+# Expose the necessary port
 EXPOSE 3000
-# ditto: the 'bind mounts' in docker-compose-*.yml files takes precedence
+
+# Mount the working directory as a volume (for dev)
 VOLUME [ "/app" ]
 
-CMD [ "npm", "run", "dev", "--", "--host" ]
+# Start the backend service in dev mode
+CMD [ "pnpm", "--filter", "backend", "run", "dev", "--", "--host" ]
 
-# docker build -t mood-tracker-backend-dev-image -f dev.Dockerfile .
+# run from monorepo root
+# docker build -t mood-tracker-backend-dev-image -f backend/dev.Dockerfile .
 
-# NB: this next command never did allow POST requests to go through... I guess it works with entire directories...
-# docker run -p "3001:3001" -v "$(pwd):/app" --name mood-tracker-backend-dev mood-tracker-backend-dev-image
+# docker run -p "3000:3000" -v "$(pwd):/app" --name mood-tracker-backend-dev mood-tracker-backend-dev-image
