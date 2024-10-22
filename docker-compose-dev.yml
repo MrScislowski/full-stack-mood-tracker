@@ -1,0 +1,16 @@
+services:
+  json-server:
+    image: json-server-dev-image
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 3001:3001
+
+  backend:
+    image: mood-tracker-backend-dev-image
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/app/backend
+    environment:
+      - DB_URL=http://json-server:3001/entries
