@@ -7,7 +7,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
-  - add tailwind to refactored scripts
   - make sure Dockerfile for database still works
   - make sure Dockerfile forbackend still works
 - make a dev.Dockerfile for the frontend

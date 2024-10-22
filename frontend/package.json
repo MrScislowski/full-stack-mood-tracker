@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "vite .",
-    "build": "vite build",
-    "build:test": "vite build --mode development",
+    "dev": "concurrently \"pnpm dlx tailwindcss -i ./src/input.css -o ./src/output.css --watch\" \"vite .\"",
+    "build": "pnpm dlx tailwindcss -i ./src/input.css -o ./src/output.css && vite build",
+    "build:test": "pnpm dlx tailwindcss -i ./src/input.css -o ./src/output.css && vite build --mode development",
     "lint": "eslint ."
   },
   "dependencies": {
