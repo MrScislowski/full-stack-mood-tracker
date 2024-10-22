@@ -12,5 +12,6 @@ services:
       - 3000:3000
     volumes:
       - ./backend:/app/backend
+      - /app/backend/node_modules
     environment:
       - DB_URL=http://json-server:3001/entries
