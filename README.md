@@ -7,7 +7,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 ## This branch
 
 - make a dev.Dockerfile for the backend
-  - set up some lint ignoring for the shared library (it's looking at index.d.ts)
   - add tailwind to refactored scripts
   - make sure Dockerfile for database still works
   - make sure Dockerfile forbackend still works
