@@ -6,9 +6,8 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- make a dev.Dockerfile for the frontend
-- join them all together in a docker-compose-dev.yml and nginx.dev.conf. Using correct ports and stuff.
-- test to make sure it's a viable and dynamic development environment
+- Configure nginx.dev.conf
+- test to make sure it's a viable and dynamic development environment (changing styles / frontend / backend causes instant changes to browser)
 
 ### Other tasks
 
