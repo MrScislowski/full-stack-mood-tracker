@@ -26,6 +26,15 @@ services:
       - ./frontend:/app/frontend
       - /app/frontend/node_modules
     environment:
-      - VITE_API_BASE_URL=http://backend:3000
+      - VITE_API_BASE_URL=http://localhost:8080/api
     depends_on:
       - backend
+
+  reverse-proxy:
+    image: nginx:alpine
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - frontend

@@ -6,7 +6,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- Configure nginx.dev.conf
 - test to make sure it's a viable and dynamic development environment (changing styles / frontend / backend causes instant changes to browser)
 
 ### Other tasks

@@ -29,3 +29,6 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3001/api/entries
+
+### 
+GET http://localhost:8080/api/entries
