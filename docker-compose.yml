@@ -1,0 +1,37 @@
+services:
+  json-server:
+    image: json-server-dev-image
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 3001:3001
+
+  backend:
+    image: mood-tracker-backend-image
+    ports:
+      - 3000:3000
+    environment:
+      - DB_URL=http://json-server:3001/entries
+    depends_on:
+      - json-server
+
+  # frontend:
+  #   image: mood-tracker-frontend-dev-image
+  #   ports:
+  #     - 5173:5173
+  #   volumes:
+  #     - ./frontend:/app/frontend
+  #     - /app/frontend/node_modules
+  #   environment:
+  #     - VITE_API_BASE_URL=http://localhost:8080/api
+  #   depends_on:
+  #     - backend
+
+  # reverse-proxy:
+  #   image: nginx:alpine
+  #   volumes:
+  #     - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+  #   ports:
+  #     - 8080:80
+  #   depends_on:
+  #     - frontend

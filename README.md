@@ -6,7 +6,15 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 ## This branch
 
-- test to make sure it's a viable and dynamic development environment (changing styles / frontend / backend causes instant changes to browser)
+Docker production...
+
+- backend
+  - install just production node modules, not development ones `--prod`
+- frontend
+  - build?
+  - serve using node instead of vite dev
+- nginx/glue
+- incorporate running tests into CI/CD pipeline, using container repository (probably github's)
 
 ### Other tasks
 

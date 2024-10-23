@@ -19,7 +19,8 @@
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.1",
-    "shared": "workspace:*"
+    "shared": "workspace:*",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
