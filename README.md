@@ -8,8 +8,6 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 Docker production...
 
-- backend
-  - install just production node modules, not development ones `--prod`
 - frontend
   - build?
   - serve using node instead of vite dev

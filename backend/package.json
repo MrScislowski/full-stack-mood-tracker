@@ -9,13 +9,14 @@
     "db:start": "json-server -p 3001 ../data/db.json",
     "dev": "tsx watch index.ts",
     "dev:all": "concurrently \"pnpm run db:start\" \"tsx watch index.ts\"",
-    "start": "concurrently \"pnpm run db:start\" \"cross-env NODE_ENV=production node ./dist/index.js\"",
     "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.1",
@@ -23,8 +24,6 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
     "concurrently": "^9.0.1",
     "tsx": "^4.19.1"
   }

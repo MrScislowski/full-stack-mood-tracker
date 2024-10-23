@@ -9,7 +9,8 @@ COPY shared ./shared
 
 RUN npm install -g pnpm
 
-RUN pnpm install --config.confirmModulesPurge=false --filter backend...
+# image size without --prod was 283MB. With --prod was 248MB
+RUN pnpm install --prod --config.confirmModulesPurge=false --filter backend...
 RUN pnpm --filter shared run build
 RUN pnpm --filter backend run build
 
