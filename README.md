@@ -8,10 +8,7 @@ This web app was created to experiment with the CI/CD resources described in [pa
 
 Docker production...
 
-- frontend
-  - build?
-  - serve using node instead of vite dev
-- nginx/glue
+- check whether this works on mac
 - incorporate running tests into CI/CD pipeline, using container repository (probably github's)
 
 ### Other tasks
