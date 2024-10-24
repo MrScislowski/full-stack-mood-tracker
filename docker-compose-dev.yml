@@ -1,6 +1,9 @@
 services:
   json-server:
     image: json-server-dev-image
+    build:
+      context: .
+      dockerfile: ./backend/db.dev.Dockerfile
     volumes:
       - ./data:/app/data
     ports:
@@ -8,6 +11,9 @@ services:
 
   backend:
     image: mood-tracker-backend-dev-image
+    build:
+      context: .
+      dockerfile: ./backend/dev.Dockerfile
     ports:
       - 3000:3000
     volumes:
@@ -20,6 +26,9 @@ services:
 
   frontend:
     image: mood-tracker-frontend-dev-image
+    build:
+      context: .
+      dockerfile: ./frontend/dev.Dockerfile
     ports:
       - 5173:5173
     volumes:
