@@ -7,24 +7,25 @@
   "scripts": {
     "build": "tsc -b",
     "db:start": "json-server -p 3001 ../data/db.json",
-    "dev": "tsx watch index.ts",
+    "dev": "nodemon --watch \"./**\" --ext \"ts,json\" --exec \"tsx index.ts\" --legacy-watch",
     "dev:all": "concurrently \"pnpm run db:start\" \"tsx watch index.ts\"",
-    "start": "concurrently \"pnpm run db:start\" \"cross-env NODE_ENV=production node ./dist/index.js\"",
     "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.21.1",
-    "shared": "workspace:*"
+    "shared": "workspace:*",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
     "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7",
     "tsx": "^4.19.1"
   }
 }
