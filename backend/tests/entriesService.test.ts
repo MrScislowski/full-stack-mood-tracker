@@ -8,13 +8,13 @@ import {
 } from "vitest";
 import { spawn, ChildProcessWithoutNullStreams } from "child_process";
 import entriesService from "../services/entriesService";
-import { MoodEntrySansId } from "../../types";
+import { MoodEntrySansId } from "shared";
 
 let server: ChildProcessWithoutNullStreams;
 
 beforeAll(() => {
   return new Promise<void>((resolve) => {
-    server = spawn("json-server", ["db.json", "--port", "3001"], {
+    server = spawn("json-server", ["./data/db.json", "--port", "3001"], {
       shell: true,
     });
 

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { MoodEntry, MoodEntrySansId } from "../../types";
+import { MoodEntry, MoodEntrySansId } from "shared";
 
-const baseUrl = "http://localhost:3001/entries";
+const baseUrl = process.env.DB_URL || "http://localhost:3001/entries";
 
 const addEntry = async (entry: MoodEntrySansId): Promise<MoodEntry> => {
   const response = await axios.post(`${baseUrl}`, entry);

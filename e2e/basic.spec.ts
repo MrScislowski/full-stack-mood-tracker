@@ -4,7 +4,7 @@ import entriesService from "../backend/services/entriesService";
 
 test.beforeEach(async ({ page }) => {
   await entriesService.deleteAll();
-  await page.goto("http://localhost:3000");
+  await page.goto("http://localhost:8080");
 });
 
 test.describe("Basic Page Loading", () => {

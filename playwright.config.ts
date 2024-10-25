@@ -71,13 +71,8 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: "pnpm run start",
-      url: "http://localhost:3000",
-      reuseExistingServer: true,
-    },
-    {
-      command: "pnpm run dev:db",
-      url: "http://localhost:3001",
+      command: "docker compose -f docker-compose-dev.yml up",
+      url: "http://localhost:8080",
       reuseExistingServer: true,
     },
   ],
